@@ -11,6 +11,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class AddClinicActivity extends AppCompatActivity {
+
     private Clinic clinic;
     EditText nameText;
     EditText addressText;
@@ -28,15 +29,15 @@ public class AddClinicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_clinic);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         clinic = new Clinic();
-        nameText = findViewById(R.id.nameClinic);
-        addressText = findViewById(R.id.addressClinic);
-        ratingText = findViewById(R.id.ratingClinic);
-        latitudeText = findViewById(R.id.latitudeClinic);
-        longitudeText = findViewById(R.id.longitudeClinic);
-        impressionText = findViewById(R.id.impressionClinic);
-        leadPhysicianText = findViewById(R.id.leadPhysicianClinic);
-        specializationText = findViewById(R.id.specializationClinic);
-        averagePriceText = findViewById(R.id.averagePriceClinic);
+        nameText = findViewById(R.id.nameClinicC);
+        addressText = findViewById(R.id.addressClinicC);
+        ratingText = findViewById(R.id.ratingClinicC);
+        latitudeText = findViewById(R.id.latitudeClinicC);
+        longitudeText = findViewById(R.id.longitudeClinicC);
+        impressionText = findViewById(R.id.impressionClinicC);
+        leadPhysicianText = findViewById(R.id.leadPhysicianClinicC);
+        specializationText = findViewById(R.id.specializationClinicC);
+        averagePriceText = findViewById(R.id.averagePriceClinicC);
         latitudeText.setText(getIntent().getDoubleExtra("lat", 0) + "");
         longitudeText.setText(getIntent().getDoubleExtra("long", 0) + "");
     }

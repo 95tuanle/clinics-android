@@ -4,6 +4,8 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
@@ -11,7 +13,6 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -22,7 +23,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -33,6 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     public static final String MAP_API = "https://clinicandroidasn2.herokuapp.com/clinics";
@@ -41,7 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationRequest locationRequest;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
     /**
      * Manipulates the map once available.
@@ -81,10 +80,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                if (marker.getTag() != null) {
+                    Intent intent = new Intent(MapsActivity.this, UpdateDeleteClinicActivity.class);
+                    intent.putExtra("JSONString", marker.getTag().toString());
+                    startActivity(intent);
+                }
                 return false;
             }
         });
-
 
         requestLocationPermission();
 //        startLocationUpdate();
@@ -102,9 +105,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
                     super.onLocationResult(locationResult);
-                    Location location = locationResult.getLastLocation();
-                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    mMap.clear();
+                    LatLng latLng = new LatLng(locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
                     mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                    new GetClinics().execute();
                 }
             }, null);
         } else {
@@ -116,6 +120,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onResume() {
         super.onResume();
+        if (mMap != null) {
+            mMap.clear();
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                    }
+                });
+            } else {
+                requestLocationPermission();
+            }
+        }
         new GetClinics().execute();
     }
 
@@ -133,7 +152,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.clear();
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                     mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, (float) 16.0));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, (float) 15.0));
+                    new GetClinics().execute();
                 }
             });
         } else {
@@ -154,12 +174,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             super.onPostExecute(aVoid);
             try {
                 JSONArray jsonArray = new JSONArray(jsonString);
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.clinic);
+                Bitmap rawBitmap = bitmapDrawable.getBitmap();
+                Bitmap resizedBitmap = Bitmap.createScaledBitmap(rawBitmap, 100, 100, false);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitute")
-                            , jsonObject.getDouble("longitute")))
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitute")
+                            , jsonObject.getDouble("longitute"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
                             .title(jsonObject.getString("name")).snippet("clinic"));
-//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.logo_background))
+                    marker.setTag(jsonObject);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

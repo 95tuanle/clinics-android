@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".AddClinicActivity">
 
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -15,12 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name" />
             <EditText
-                android:id="@+id/nameClinic"
+                android:id="@+id/nameClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -32,12 +30,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Address" />
             <EditText
-                android:id="@+id/addressClinic"
+                android:id="@+id/addressClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -49,12 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rating" />
             <EditText
-                android:id="@+id/ratingClinic"
+                android:id="@+id/ratingClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -66,12 +62,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Latitude" />
             <EditText
-                android:id="@+id/latitudeClinic"
+                android:id="@+id/latitudeClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -83,12 +78,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Longitude" />
             <EditText
-                android:id="@+id/longitudeClinic"
+                android:id="@+id/longitudeClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -100,12 +94,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Impression" />
             <EditText
-                android:id="@+id/impressionClinic"
+                android:id="@+id/impressionClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -118,13 +111,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lead Physician" />
-
             <EditText
-                android:id="@+id/leadPhysicianClinic"
+                android:id="@+id/leadPhysicianClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -136,12 +127,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Specialization" />
             <EditText
-                android:id="@+id/specializationClinic"
+                android:id="@+id/specializationClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -153,12 +143,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Average Price" />
             <EditText
-                android:id="@+id/averagePriceClinic"
+                android:id="@+id/averagePriceClinicC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
