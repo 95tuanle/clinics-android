@@ -75,16 +75,21 @@ public class UpdateDeleteClinicActivity extends AppCompatActivity {
                 || averagePriceText.getText().toString().equals("")) {
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
-            clinic.latitude = Double.parseDouble(latitudeText.getText().toString());
-            clinic.longitude = Double.parseDouble(longitudeText.getText().toString());
-            clinic.name = nameText.getText().toString();
-            clinic.address = addressText.getText().toString();
-            clinic.rating = Integer.parseInt(ratingText.getText().toString());
-            clinic.impression = impressionText.getText().toString();
-            clinic.leadPhysician = leadPhysicianText.getText().toString();
-            clinic.specialization = specializationText.getText().toString();
-            clinic.averagePrice = Integer.parseInt(averagePriceText.getText().toString());
-            new PutClinic().execute();
+            int rating = Integer.parseInt(ratingText.getText().toString());
+            if (rating < 0 || rating > 10) {
+                Toast.makeText(this, "Rating should be in range between 0 and 10", Toast.LENGTH_SHORT).show();
+            } else {
+                clinic.latitude = Double.parseDouble(latitudeText.getText().toString());
+                clinic.longitude = Double.parseDouble(longitudeText.getText().toString());
+                clinic.name = nameText.getText().toString();
+                clinic.address = addressText.getText().toString();
+                clinic.rating = rating;
+                clinic.impression = impressionText.getText().toString();
+                clinic.leadPhysician = leadPhysicianText.getText().toString();
+                clinic.specialization = specializationText.getText().toString();
+                clinic.averagePrice = Integer.parseInt(averagePriceText.getText().toString());
+                new PutClinic().execute();
+            }
         }
     }
 
