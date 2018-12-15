@@ -39,8 +39,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddClinicActivity" android:label="Create Clinic"/>
-        <activity android:name=".UpdateDeleteClinicActivity" android:label="Update or Delete Clinic"/>
+        <activity
+            android:name=".AddClinicActivity"
+            android:label="Create Clinic" />
+        <activity
+            android:name=".UpdateDeleteClinicActivity"
+            android:label="Update or Delete Clinic" />
+        <activity
+            android:name=".ListClinicsActivity"
+            android:label="List of Clinics"/>
     </application>
 
 </manifest>

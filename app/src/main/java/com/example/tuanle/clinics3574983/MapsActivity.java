@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -36,12 +37,12 @@ import org.json.JSONObject;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    public static final String MAP_API = "https://clinicandroidasn2.herokuapp.com/clinics";
-    private static final long UPDATE_INTERVAL = 10000;
-    private static final long FASTEST_INTERVAL = 2000;
+    public static final String MAP_API = "https://clinicandroidasn2v2.herokuapp.com/clinics";
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private LocationRequest locationRequest;
+//    private static final long UPDATE_INTERVAL = 10000;
+//    private static final long FASTEST_INTERVAL = 2000;
+//    private LocationRequest locationRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,29 +94,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        startLocationUpdate();
     }
 
-    @SuppressLint({"RestrictedApi", "MissingPermission"})
-    private void startLocationUpdate() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            locationRequest = new LocationRequest();
-            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-            locationRequest.setInterval(UPDATE_INTERVAL);
-            locationRequest.setFastestInterval(FASTEST_INTERVAL);
-            fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
-                @Override
-                public void onLocationResult(LocationResult locationResult) {
-                    super.onLocationResult(locationResult);
-                    mMap.clear();
-                    LatLng latLng = new LatLng(locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
-                    new GetClinics().execute();
-                }
-            }, null);
-        } else {
-            requestLocationPermission();
-        }
-
-    }
+//    @SuppressLint({"RestrictedApi", "MissingPermission"})
+//    private void startLocationUpdate() {
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+//                == PackageManager.PERMISSION_GRANTED) {
+//            locationRequest = new LocationRequest();
+//            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+//            locationRequest.setInterval(UPDATE_INTERVAL);
+//            locationRequest.setFastestInterval(FASTEST_INTERVAL);
+//            fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
+//                @Override
+//                public void onLocationResult(LocationResult locationResult) {
+//                    super.onLocationResult(locationResult);
+//                    mMap.clear();
+//                    LatLng latLng = new LatLng(locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
+//                    mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+//                    new GetClinics().execute();
+//                }
+//            }, null);
+//        } else {
+//            requestLocationPermission();
+//        }
+//    }
 
     @Override
     protected void onResume() {
@@ -127,8 +127,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
-                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                        if (location != null) {
+                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                            mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                        }
                     }
                 });
             } else {
@@ -150,9 +152,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 @Override
                 public void onSuccess(Location location) {
                     mMap.clear();
-                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, (float) 15.0));
+                    if (location != null) {
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, (float) 15.0));
+                    } else {
+                        Toast.makeText(MapsActivity.this, "Fetching location, please wait and try again", Toast.LENGTH_SHORT).show();
+                    }
                     new GetClinics().execute();
                 }
             });
@@ -161,6 +167,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void listViewClicked(View view) {
+        Intent intent = new Intent(MapsActivity.this, ListClinicsActivity.class);
+        startActivity(intent);
+    }
+
+    @SuppressLint("StaticFieldLeak")
     private class GetClinics extends AsyncTask<Void, Void, Void> {
         String jsonString;
         @Override
@@ -179,8 +191,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Bitmap resizedBitmap = Bitmap.createScaledBitmap(rawBitmap, 100, 100, false);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitute")
-                            , jsonObject.getDouble("longitute"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitude")
+                            , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
                             .title(jsonObject.getString("name")).snippet("clinic"));
                     marker.setTag(jsonObject);
                 }

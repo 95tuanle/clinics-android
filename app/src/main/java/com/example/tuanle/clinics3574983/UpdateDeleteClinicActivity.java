@@ -18,11 +18,11 @@ public class UpdateDeleteClinicActivity extends AppCompatActivity {
 
     private Clinic clinic;
     TextView idText;
+    TextView latitudeText;
+    TextView longitudeText;
     EditText nameText;
     EditText addressText;
     EditText ratingText;
-    EditText latitudeText;
-    EditText longitudeText;
     EditText impressionText;
     EditText leadPhysicianText;
     EditText specializationText;
@@ -35,11 +35,11 @@ public class UpdateDeleteClinicActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         clinic = new Clinic();
         idText = findViewById(R.id.idClinicRUD);
+        latitudeText = findViewById(R.id.latitudeClinicRUD);
+        longitudeText = findViewById(R.id.longitudeClinicRUD);
         nameText = findViewById(R.id.nameClinicRUD);
         addressText = findViewById(R.id.addressClinicRUD);
         ratingText = findViewById(R.id.ratingClinicRUD);
-        latitudeText = findViewById(R.id.latitudeClinicRUD);
-        longitudeText = findViewById(R.id.longitudeClinicRUD);
         impressionText = findViewById(R.id.impressionClinicRUD);
         leadPhysicianText = findViewById(R.id.leadPhysicianClinicRUD);
         specializationText = findViewById(R.id.specializationClinicRUD);
@@ -47,11 +47,11 @@ public class UpdateDeleteClinicActivity extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(getIntent().getStringExtra("JSONString"));
             idText.setText(jsonObject.getString("_id"));
+            latitudeText.setText(jsonObject.getString("latitude"));
+            longitudeText.setText(jsonObject.getString("longitude"));
             nameText.setText(jsonObject.getString("name"));
             addressText.setText(jsonObject.getString("address"));
             ratingText.setText(jsonObject.getString("rating"));
-            latitudeText.setText(jsonObject.getString("latitute"));
-            longitudeText.setText(jsonObject.getString("longitute"));
             impressionText.setText(jsonObject.getString("impression"));
             leadPhysicianText.setText(jsonObject.getString("lead_physician"));
             specializationText.setText(jsonObject.getString("specialization"));
@@ -70,17 +70,16 @@ public class UpdateDeleteClinicActivity extends AppCompatActivity {
 
     public void onUpdateClicked(View view) {
         if (nameText.getText().toString().equals("") || addressText.getText().toString().equals("")
-                || ratingText.getText().toString().equals("") || latitudeText.getText().toString().equals("")
-                || longitudeText.getText().toString().equals("") || impressionText.getText().toString().equals("")
+                || ratingText.getText().toString().equals("") || impressionText.getText().toString().equals("")
                 || leadPhysicianText.getText().toString().equals("") || specializationText.getText().toString().equals("")
                 || averagePriceText.getText().toString().equals("")) {
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
+            clinic.latitude = Double.parseDouble(latitudeText.getText().toString());
+            clinic.longitude = Double.parseDouble(longitudeText.getText().toString());
             clinic.name = nameText.getText().toString();
             clinic.address = addressText.getText().toString();
             clinic.rating = Integer.parseInt(ratingText.getText().toString());
-            clinic.latitude = Double.parseDouble(latitudeText.getText().toString());
-            clinic.longitude = Double.parseDouble(longitudeText.getText().toString());
             clinic.impression = impressionText.getText().toString();
             clinic.leadPhysician = leadPhysicianText.getText().toString();
             clinic.specialization = specializationText.getText().toString();

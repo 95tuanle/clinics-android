@@ -8,8 +8,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 public class HttpHandler {
@@ -33,24 +31,21 @@ public class HttpHandler {
 
     public static String postRequest(String urlString, Clinic clinic) {
         try {
-            // prep the connection
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
-            // prep the json obj
             JSONObject jsonObject = new JSONObject();
+            jsonObject.put("latitude", clinic.latitude);
+            jsonObject.put("longitude", clinic.longitude);
             jsonObject.put("name", clinic.name);
             jsonObject.put("address", clinic.address);
             jsonObject.put("rating", clinic.rating);
-            jsonObject.put("latitute", clinic.latitude);
-            jsonObject.put("longitute", clinic.longitude);
             jsonObject.put("impression", clinic.impression);
             jsonObject.put("lead_physician", clinic.leadPhysician);
             jsonObject.put("specialization", clinic.specialization);
             jsonObject.put("average_price", clinic.averagePrice);
-            // write to db
             DataOutputStream os = new DataOutputStream(connection.getOutputStream());
             os.writeBytes(jsonObject.toString());
             os.flush();
@@ -64,23 +59,20 @@ public class HttpHandler {
 
     public static String putRequest(String urlString, Clinic clinic, String clinicID) {
         try {
-            // prep the connection
             URL url = new URL(urlString + "/" + clinicID);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("PUT");
             connection.setRequestProperty("Content-Type", "application/json");
-            // prep the json obj
             JSONObject jsonObject = new JSONObject();
+            jsonObject.put("latitude", clinic.latitude);
+            jsonObject.put("longitude", clinic.longitude);
             jsonObject.put("name", clinic.name);
             jsonObject.put("address", clinic.address);
             jsonObject.put("rating", clinic.rating);
-            jsonObject.put("latitute", clinic.latitude);
-            jsonObject.put("longitute", clinic.longitude);
             jsonObject.put("impression", clinic.impression);
             jsonObject.put("lead_physician", clinic.leadPhysician);
             jsonObject.put("specialization", clinic.specialization);
             jsonObject.put("average_price", clinic.averagePrice);
-            // write to db
             DataOutputStream os = new DataOutputStream(connection.getOutputStream());
             os.writeBytes(jsonObject.toString());
             os.flush();
@@ -94,7 +86,6 @@ public class HttpHandler {
 
     public static String deleteRequest(String urlString, String clinicID) {
         try {
-            // prep the connection
             URL url = new URL(urlString + "/" + clinicID);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("DELETE");

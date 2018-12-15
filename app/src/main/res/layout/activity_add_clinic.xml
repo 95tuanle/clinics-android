@@ -16,6 +16,34 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Latitude" />
+            <TextView
+                android:id="@+id/latitudeClinicC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Latitude of Clinic" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitude" />
+            <TextView
+                android:id="@+id/longitudeClinicC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Longitude of Clinic" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Name" />
             <EditText
                 android:id="@+id/nameClinicC"
@@ -55,38 +83,6 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Rating of Clinic (0-10)"
-                android:inputType="number" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Latitude" />
-            <EditText
-                android:id="@+id/latitudeClinicC"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Latitude of Clinic"
-                android:inputType="number" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Longitude" />
-            <EditText
-                android:id="@+id/longitudeClinicC"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Longitude of Clinic"
                 android:inputType="number" />
         </TableRow>
 

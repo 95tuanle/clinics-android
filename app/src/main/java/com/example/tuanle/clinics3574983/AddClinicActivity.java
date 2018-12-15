@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -13,11 +14,11 @@ import java.util.Objects;
 public class AddClinicActivity extends AppCompatActivity {
 
     private Clinic clinic;
+    TextView latitudeText;
+    TextView longitudeText;
     EditText nameText;
     EditText addressText;
     EditText ratingText;
-    EditText latitudeText;
-    EditText longitudeText;
     EditText impressionText;
     EditText leadPhysicianText;
     EditText specializationText;
@@ -29,11 +30,11 @@ public class AddClinicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_clinic);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         clinic = new Clinic();
+        latitudeText = findViewById(R.id.latitudeClinicC);
+        longitudeText = findViewById(R.id.longitudeClinicC);
         nameText = findViewById(R.id.nameClinicC);
         addressText = findViewById(R.id.addressClinicC);
         ratingText = findViewById(R.id.ratingClinicC);
-        latitudeText = findViewById(R.id.latitudeClinicC);
-        longitudeText = findViewById(R.id.longitudeClinicC);
         impressionText = findViewById(R.id.impressionClinicC);
         leadPhysicianText = findViewById(R.id.leadPhysicianClinicC);
         specializationText = findViewById(R.id.specializationClinicC);
@@ -50,17 +51,16 @@ public class AddClinicActivity extends AppCompatActivity {
 
     public void onCreateClicked(View view) {
         if (nameText.getText().toString().equals("") || addressText.getText().toString().equals("")
-                || ratingText.getText().toString().equals("") || latitudeText.getText().toString().equals("")
-                || longitudeText.getText().toString().equals("") || impressionText.getText().toString().equals("")
+                || ratingText.getText().toString().equals("") || impressionText.getText().toString().equals("")
                 || leadPhysicianText.getText().toString().equals("") || specializationText.getText().toString().equals("")
                 || averagePriceText.getText().toString().equals("")) {
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
+            clinic.latitude = Double.parseDouble(latitudeText.getText().toString());
+            clinic.longitude = Double.parseDouble(longitudeText.getText().toString());
             clinic.name = nameText.getText().toString();
             clinic.address = addressText.getText().toString();
             clinic.rating = Integer.parseInt(ratingText.getText().toString());
-            clinic.latitude = Double.parseDouble(latitudeText.getText().toString());
-            clinic.longitude = Double.parseDouble(longitudeText.getText().toString());
             clinic.impression = impressionText.getText().toString();
             clinic.leadPhysician = leadPhysicianText.getText().toString();
             clinic.specialization = specializationText.getText().toString();
