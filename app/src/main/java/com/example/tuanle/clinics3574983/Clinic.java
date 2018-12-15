@@ -1,6 +1,7 @@
 package com.example.tuanle.clinics3574983;
 
 class Clinic {
+
     double latitude;
     double longitude;
     String name;
