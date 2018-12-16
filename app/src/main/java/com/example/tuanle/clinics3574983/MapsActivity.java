@@ -14,7 +14,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.TypedArrayUtils;
 import android.view.View;
 import android.widget.Toast;
 
@@ -46,7 +45,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<String> ratings;
     private List<String> specializations;
     private List<String> filteredRatings;
-//    private List<String> filteredSpecializations;
+    private List<String> filteredSpecializations;
+    private boolean filteringRating = false;
+    private boolean filteringSpecialization = false;
 
 //    private static final long UPDATE_INTERVAL = 10000;
 //    private static final long FASTEST_INTERVAL = 2000;
@@ -75,8 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
-        ratings = new ArrayList<>();
-        specializations = new ArrayList<>();
+
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -148,6 +148,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 requestLocationPermission();
             }
         }
+        ratings = new ArrayList<>();
+        specializations = new ArrayList<>();
         new GetClinics().execute();
     }
 
@@ -184,7 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void onFilterClicked(View view) {
         AlertDialog.Builder mainBuilder = new AlertDialog.Builder(MapsActivity.this);
-        mainBuilder.setTitle("Pick type of filter");
+        mainBuilder.setTitle("Pick a type or types of filter");
         mainBuilder.setNegativeButton("Rating", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -211,7 +213,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             if (!filteredRatings.contains(rating)) {
                                 filteredRatings.add(rating);
                             }
-
                         } else if (filteredRatings.contains(rating)) {
                             filteredRatings.remove(rating);
                         }
@@ -220,12 +221,141 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 builder.setPositiveButton("Filter", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
+                        if (filteredRatings.size() == 0) {
+                            ratings = new ArrayList<>();
+                            filteredRatings = new ArrayList<>();
+                            filteringRating = false;
+                        } else {
+                            filteringRating = true;
+                        }
+                        mMap.clear();
+                        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                                @Override
+                                public void onSuccess(Location location) {
+                                    if (location != null) {
+                                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                                    }
+                                }
+                            });
+                        } else {
+                            requestLocationPermission();
+                        }
+                        new GetClinics().execute();
+                    }
+                });
+                builder.setNegativeButton("Clear filter", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                        ratings = new ArrayList<>();
+                        filteredRatings = new ArrayList<>();
+                        filteringRating = false;
+                        mMap.clear();
+                        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                                @Override
+                                public void onSuccess(Location location) {
+                                    if (location != null) {
+                                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                                    }
+                                }
+                            });
+                        } else {
+                            requestLocationPermission();
+                        }
+                        new GetClinics().execute();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+        mainBuilder.setPositiveButton("Specialization", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MapsActivity.this);
+                builder.setTitle("Pick specialization filter");
+                if (filteredSpecializations == null) {
+                    filteredSpecializations = new ArrayList<>();
+                }
+
+                final String[] specializationArray = specializations.toArray(new String[specializations.size()]);
+                boolean[] checkedSpecializations = new boolean[specializationArray.length];
+
+                for (int i = 0; i < specializationArray.length; i++) {
+                    if (filteredSpecializations.contains(specializationArray[i])) {
+                        checkedSpecializations[i] = true;
+                    }
+
+                }
+                builder.setMultiChoiceItems(specializationArray, checkedSpecializations, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        String specialization = specializationArray[which];
+                        if (isChecked) {
+                            if (!filteredSpecializations.contains(specialization)) {
+                                filteredSpecializations.add(specialization);
+                            }
+                        } else if (filteredSpecializations.contains(specialization)) {
+                            filteredSpecializations.remove(specialization);
+                        }
+                    }
+                });
+                builder.setPositiveButton("Filter", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        if (filteredSpecializations.size() == 0) {
+                            ratings = new ArrayList<>();
+                            filteredRatings = new ArrayList<>();
+                            filteringSpecialization = false;
+                        } else {
+                            filteringSpecialization = true;
+                        }
+                        mMap.clear();
+                        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                                @Override
+                                public void onSuccess(Location location) {
+                                    if (location != null) {
+                                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                                    }
+                                }
+                            });
+                        } else {
+                            requestLocationPermission();
+                        }
+                        new GetClinics().execute();
 
                     }
                 });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Clear filter", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
+                        specializations = new ArrayList<>();
+                        filteredSpecializations = new ArrayList<>();
+                        filteringSpecialization = false;
+                        mMap.clear();
+                        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                                @Override
+                                public void onSuccess(Location location) {
+                                    if (location != null) {
+                                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                        mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
+                                    }
+                                }
+                            });
+                        } else {
+                            requestLocationPermission();
+                        }
+                        new GetClinics().execute();
                     }
                 });
                 AlertDialog alertDialog = builder.create();
@@ -234,14 +364,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
         AlertDialog alertDialog = mainBuilder.create();
         alertDialog.show();
-
-
-
-
-
     }
-
-
 
     @SuppressLint("StaticFieldLeak")
     private class GetClinics extends AsyncTask<Void, Void, Void> {
@@ -262,10 +385,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Bitmap resizedBitmap = Bitmap.createScaledBitmap(rawBitmap, 100, 100, false);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitude")
-                            , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
-                            .title(jsonObject.getString("name")).snippet("clinic"));
-                    marker.setTag(jsonObject);
+                    if (filteringRating && filteringSpecialization) {
+                        if (filteredRatings.contains(jsonObject.getString("rating")) && filteredSpecializations.contains(jsonObject.getString("specialization"))) {
+                            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitude")
+                                    , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
+                                    .title(jsonObject.getString("name")).snippet("clinic"));
+                            marker.setTag(jsonObject);
+                        }
+                    } else if (filteringRating) {
+                        if (filteredRatings.contains(jsonObject.getString("rating"))) {
+                            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitude")
+                                    , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
+                                    .title(jsonObject.getString("name")).snippet("clinic"));
+                            marker.setTag(jsonObject);
+                        }
+                    } else if (filteringSpecialization) {
+                        if (filteredSpecializations.contains(jsonObject.getString("specialization"))) {
+                            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitude")
+                                    , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
+                                    .title(jsonObject.getString("name")).snippet("clinic"));
+                            marker.setTag(jsonObject);
+                        }
+                    } else {
+                        Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(jsonObject.getDouble("latitude")
+                                , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
+                                .title(jsonObject.getString("name")).snippet("clinic"));
+                        marker.setTag(jsonObject);
+                    }
+
                     String rating = jsonObject.getString("rating");
                     if (!ratings.contains(rating)) {
                         ratings.add(rating);
@@ -278,7 +425,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }
