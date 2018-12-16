@@ -12,18 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72979ccc-20f8-416c-8c30-1284b0a19f79" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/ListClinicsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/ListClinicsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/MapsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/MapsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_list_clinics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_list_clinics.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,131 +43,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/MapsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1070">
-              <caret line="269" column="51" selection-start-line="269" selection-start-column="51" selection-end-line="269" selection-end-column="51" />
-              <folding>
-                <element signature="e#1797#1853#0" />
-                <element signature="method#onCreate#0;class#MapsActivity#0" />
-                <element signature="docComment;method#onMapReady#0;class#MapsActivity#0" />
-                <element signature="e#4180#4239#0" />
-                <element signature="method#requestLocationPermission#0;class#MapsActivity#0" />
-                <element signature="method#getCurrentLocationClicked#0;class#MapsActivity#0" />
-                <element signature="method#listViewClicked#0;class#MapsActivity#0" />
-                <element signature="e#13111#18095#0" expanded="true" />
-                <element signature="e#14085#14799#0" expanded="true" />
-                <element signature="e#14798#14799#0" expanded="true" />
-                <element signature="e#14854#16473#0" expanded="true" />
-                <element signature="e#15715#16262#0" expanded="true" />
-                <element signature="e#16261#16262#0" expanded="true" />
-                <element signature="e#16472#16473#0" expanded="true" />
-                <element signature="e#16534#17973#0" expanded="true" />
-                <element signature="e#17216#17763#0" expanded="true" />
-                <element signature="e#17762#17763#0" expanded="true" />
-                <element signature="e#17972#17973#0" expanded="true" />
-                <element signature="e#18094#18095#0" expanded="true" />
-                <element signature="method#doInBackground#0;class#GetClinics#0;class#MapsActivity#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_list_clinics.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_list_clinics.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_maps.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="764">
-              <caret line="56" column="80" selection-start-line="44" selection-start-column="4" selection-end-line="56" selection-end-column="80" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListClinicsActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ListClinicsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/ListClinicsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-895">
-              <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+            <state relative-caret-position="122">
+              <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
               <folding>
-                <element signature="e#4936#7933#0" expanded="true" />
-                <element signature="e#5910#6624#0" expanded="true" />
-                <element signature="e#6623#6624#0" expanded="true" />
-                <element signature="e#6679#7305#0" expanded="true" />
-                <element signature="e#7304#7305#0" expanded="true" />
-                <element signature="e#6776#7221#0" expanded="true" />
-                <element signature="e#7220#7221#0" expanded="true" />
-                <element signature="e#7932#7933#0" expanded="true" />
+                <element signature="method#onCreate#0;class#ListClinicsActivity#0" />
+                <element signature="method#onResume#0;class#ListClinicsActivity#0" />
+                <element signature="class#GetClinics#0;class#ListClinicsActivity#0" />
+                <element signature="method#doInBackground#0;class#GetClinics#0;class#ListClinicsActivity#0" />
+                <element signature="method#onPostExecute#0;class#GetClinics#0;class#ListClinicsActivity#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddClinicActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/AddClinicActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
-              <folding>
-                <element signature="method#onCreate#0;class#AddClinicActivity#0" />
-                <element signature="method#onOptionsItemSelected#0;class#AddClinicActivity#0" />
-                <element signature="method#onCreateClicked#0;class#AddClinicActivity#0" />
-                <element signature="method#doInBackground#0;class#PostClinic#0;class#AddClinicActivity#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateDeleteClinicActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/UpdateDeleteClinicActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
-              <folding>
-                <element signature="method#onOptionsItemSelected#0;class#UpdateDeleteClinicActivity#0" />
-                <element signature="class#PutClinic#0;class#UpdateDeleteClinicActivity#0" />
-                <element signature="method#doInBackground#0;class#PutClinic#0;class#UpdateDeleteClinicActivity#0" />
-                <element signature="class#DeleteClinic#0;class#UpdateDeleteClinicActivity#0" />
-                <element signature="method#doInBackground#0;class#DeleteClinic#0;class#UpdateDeleteClinicActivity#0" />
-                <element signature="method#onPostExecute#0;class#DeleteClinic#0;class#UpdateDeleteClinicActivity#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/HttpHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="96" column="5" selection-start-line="86" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
-              <folding>
-                <element signature="method#getRequest#0;class#HttpHandler#0" />
-                <element signature="method#postRequest#0;class#HttpHandler#0" />
-                <element signature="method#putRequest#0;class#HttpHandler#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Clinic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/Clinic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -2517,17 +2393,6 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="clinics3574983" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
-            <path>
-              <item name="LeNguyenAnhTuan-s3574983-Clinics" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="LeNguyenAnhTuan-s3574983-Clinics" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -2694,7 +2559,7 @@
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14713065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14713065" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4993895" weight="0.32820514" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.32967034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -2984,16 +2849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_update_delete_clinic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/e70812b9a5de33d6ecf86121b1ae96c9/jars/classes.jar!/android/support/v7/app/AppCompatViewInflater.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -3014,16 +2869,6 @@
         </state>
       </provider>
       <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_clinic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
@@ -3055,29 +2900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/Clinic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/RatingDialogFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/HttpHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="96" column="5" selection-start-line="86" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
-          <folding>
-            <element signature="method#getRequest#0;class#HttpHandler#0" />
-            <element signature="method#postRequest#0;class#HttpHandler#0" />
-            <element signature="method#putRequest#0;class#HttpHandler#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3088,14 +2914,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="42" column="27" lean-forward="true" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="e#1797#1853#0" />
+            <element signature="method#onCreate#0;class#MapsActivity#0" />
+            <element signature="docComment;method#onMapReady#0;class#MapsActivity#0" />
+            <element signature="method#onMapReady#0;class#MapsActivity#0" />
+            <element signature="e#4180#4239#0" />
+            <element signature="method#onResume#0;class#MapsActivity#0" />
+            <element signature="method#requestLocationPermission#0;class#MapsActivity#0" />
+            <element signature="method#getCurrentLocationClicked#0;class#MapsActivity#0" />
+            <element signature="method#listViewClicked#0;class#MapsActivity#0" />
+            <element signature="method#onFilterClicked#0;class#MapsActivity#0" />
+            <element signature="class#GetClinics#0;class#MapsActivity#0" />
+            <element signature="method#doInBackground#0;class#GetClinics#0;class#MapsActivity#0" />
+            <element signature="method#onPostExecute#0;class#GetClinics#0;class#MapsActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/AddClinicActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="80" column="65" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="65" />
+          <folding>
+            <element signature="method#onCreate#0;class#AddClinicActivity#0" />
+            <element signature="method#onOptionsItemSelected#0;class#AddClinicActivity#0" />
+            <element signature="method#onCreateClicked#0;class#AddClinicActivity#0" />
+            <element signature="class#PostClinic#0;class#AddClinicActivity#0" />
+            <element signature="method#doInBackground#0;class#PostClinic#0;class#AddClinicActivity#0" />
+            <element signature="method#onPostExecute#0;class#PostClinic#0;class#AddClinicActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/UpdateDeleteClinicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
+        <state relative-caret-position="450">
           <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
           <folding>
+            <element signature="method#onCreate#0;class#UpdateDeleteClinicActivity#0" />
             <element signature="method#onOptionsItemSelected#0;class#UpdateDeleteClinicActivity#0" />
+            <element signature="method#onUpdateClicked#0;class#UpdateDeleteClinicActivity#0" />
             <element signature="class#PutClinic#0;class#UpdateDeleteClinicActivity#0" />
             <element signature="method#doInBackground#0;class#PutClinic#0;class#UpdateDeleteClinicActivity#0" />
+            <element signature="method#onPostExecute#0;class#PutClinic#0;class#UpdateDeleteClinicActivity#0" />
             <element signature="class#DeleteClinic#0;class#UpdateDeleteClinicActivity#0" />
             <element signature="method#doInBackground#0;class#DeleteClinic#0;class#UpdateDeleteClinicActivity#0" />
             <element signature="method#onPostExecute#0;class#DeleteClinic#0;class#UpdateDeleteClinicActivity#0" />
@@ -3103,33 +2969,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/HttpHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="56" column="80" selection-start-line="44" selection-start-column="4" selection-end-line="56" selection-end-column="80" />
+        <state relative-caret-position="195">
+          <caret line="96" column="5" selection-start-line="86" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
+          <folding>
+            <element signature="method#getRequest#0;class#HttpHandler#0" />
+            <element signature="method#postRequest#0;class#HttpHandler#0" />
+            <element signature="method#putRequest#0;class#HttpHandler#0" />
+            <element signature="method#deleteRequest#0;class#HttpHandler#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/Clinic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_clinic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="72" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
+          <folding>
+            <element signature="e#39#6524#0" />
+            <element signature="e#380#5944#0" />
+            <element signature="e#491#1018#0" />
+            <element signature="e#611#768#0" />
+            <element signature="e#781#998#0" />
+            <element signature="e#1028#1558#0" />
+            <element signature="e#1148#1306#0" />
+            <element signature="e#1319#1538#0" />
+            <element signature="e#1568#2167#0" />
+            <element signature="e#1688#1841#0" />
+            <element signature="e#1854#2147#0" />
+            <element signature="e#2177#2788#0" />
+            <element signature="e#2297#2453#0" />
+            <element signature="e#2466#2768#0" />
+            <element signature="e#2798#3402#0" />
+            <element signature="e#2918#3073#0" />
+            <element signature="e#3086#3382#0" />
+            <element signature="e#3412#4030#0" />
+            <element signature="e#3532#3691#0" />
+            <element signature="e#3704#4010#0" />
+            <element signature="e#4040#4669#0" />
+            <element signature="e#4161#4324#0" />
+            <element signature="e#4337#4649#0" />
+            <element signature="e#4679#5298#0" />
+            <element signature="e#4799#4962#0" />
+            <element signature="e#4975#5278#0" />
+            <element signature="e#5308#5925#0" />
+            <element signature="e#5428#5590#0" />
+            <element signature="e#5603#5905#0" />
+            <element signature="e#5950#6508#0" />
+            <element signature="e#6104#6291#0" />
+            <element signature="e#6301#6488#0" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/AddClinicActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_list_clinics.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+        <state relative-caret-position="15">
+          <caret line="1" column="103" selection-start-line="1" selection-start-column="103" selection-end-line="1" selection-end-column="103" />
           <folding>
-            <element signature="method#onCreate#0;class#AddClinicActivity#0" />
-            <element signature="method#onOptionsItemSelected#0;class#AddClinicActivity#0" />
-            <element signature="method#onCreateClicked#0;class#AddClinicActivity#0" />
-            <element signature="method#doInBackground#0;class#PostClinic#0;class#AddClinicActivity#0" />
+            <element signature="e#39#1238#0" />
+            <element signature="e#378#517#0" />
+            <element signature="e#523#1190#0" />
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_list_clinics.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="15">
+          <caret line="1" column="74" selection-start-line="1" selection-start-column="74" selection-end-line="1" selection-end-column="74" />
+          <folding>
+            <element signature="e#39#2548#0" />
+            <element signature="e#343#636#0" />
+            <element signature="e#642#1281#0" />
+            <element signature="e#1287#1899#0" />
+            <element signature="e#1905#2528#0" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_update_delete_clinic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="72" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
+          <folding>
+            <element signature="e#39#7271#0" />
+            <element signature="e#389#6493#0" />
+            <element signature="e#500#1011#0" />
+            <element signature="e#620#771#0" />
+            <element signature="e#784#991#0" />
+            <element signature="e#1021#1550#0" />
+            <element signature="e#1141#1298#0" />
+            <element signature="e#1311#1530#0" />
+            <element signature="e#1560#2092#0" />
+            <element signature="e#1680#1838#0" />
+            <element signature="e#1851#2072#0" />
+            <element signature="e#2102#2703#0" />
+            <element signature="e#2222#2375#0" />
+            <element signature="e#2388#2683#0" />
+            <element signature="e#2713#3326#0" />
+            <element signature="e#2833#2989#0" />
+            <element signature="e#3002#3306#0" />
+            <element signature="e#3336#3942#0" />
+            <element signature="e#3456#3611#0" />
+            <element signature="e#3624#3922#0" />
+            <element signature="e#3952#4572#0" />
+            <element signature="e#4072#4231#0" />
+            <element signature="e#4244#4552#0" />
+            <element signature="e#4582#5214#0" />
+            <element signature="e#4703#4866#0" />
+            <element signature="e#4880#5194#0" />
+            <element signature="e#5224#5845#0" />
+            <element signature="e#5344#5507#0" />
+            <element signature="e#5520#5825#0" />
+            <element signature="e#5855#6474#0" />
+            <element signature="e#5975#6137#0" />
+            <element signature="e#6150#6454#0" />
+            <element signature="e#6499#7254#0" />
+            <element signature="e#6653#6840#0" />
+            <element signature="e#6850#7037#0" />
+            <element signature="e#7047#7234#0" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3138,46 +3115,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/ListClinicsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-895">
-          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+        <state relative-caret-position="122">
+          <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
-            <element signature="e#4936#7933#0" expanded="true" />
-            <element signature="e#5910#6624#0" expanded="true" />
-            <element signature="e#6623#6624#0" expanded="true" />
-            <element signature="e#6679#7305#0" expanded="true" />
-            <element signature="e#7304#7305#0" expanded="true" />
-            <element signature="e#6776#7221#0" expanded="true" />
-            <element signature="e#7220#7221#0" expanded="true" />
-            <element signature="e#7932#7933#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/tuanle/clinics3574983/MapsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="269" column="51" selection-start-line="269" selection-start-column="51" selection-end-line="269" selection-end-column="51" />
-          <folding>
-            <element signature="e#1797#1853#0" />
-            <element signature="method#onCreate#0;class#MapsActivity#0" />
-            <element signature="docComment;method#onMapReady#0;class#MapsActivity#0" />
-            <element signature="e#4180#4239#0" />
-            <element signature="method#requestLocationPermission#0;class#MapsActivity#0" />
-            <element signature="method#getCurrentLocationClicked#0;class#MapsActivity#0" />
-            <element signature="method#listViewClicked#0;class#MapsActivity#0" />
-            <element signature="e#13111#18095#0" expanded="true" />
-            <element signature="e#14085#14799#0" expanded="true" />
-            <element signature="e#14798#14799#0" expanded="true" />
-            <element signature="e#14854#16473#0" expanded="true" />
-            <element signature="e#15715#16262#0" expanded="true" />
-            <element signature="e#16261#16262#0" expanded="true" />
-            <element signature="e#16472#16473#0" expanded="true" />
-            <element signature="e#16534#17973#0" expanded="true" />
-            <element signature="e#17216#17763#0" expanded="true" />
-            <element signature="e#17762#17763#0" expanded="true" />
-            <element signature="e#17972#17973#0" expanded="true" />
-            <element signature="e#18094#18095#0" expanded="true" />
-            <element signature="method#doInBackground#0;class#GetClinics#0;class#MapsActivity#0" />
+            <element signature="method#onCreate#0;class#ListClinicsActivity#0" />
+            <element signature="method#onResume#0;class#ListClinicsActivity#0" />
+            <element signature="class#GetClinics#0;class#ListClinicsActivity#0" />
+            <element signature="method#doInBackground#0;class#GetClinics#0;class#ListClinicsActivity#0" />
+            <element signature="method#onPostExecute#0;class#GetClinics#0;class#ListClinicsActivity#0" />
           </folding>
         </state>
       </provider>

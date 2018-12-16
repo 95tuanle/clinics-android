@@ -156,7 +156,7 @@ public class ListClinicsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
                         if (filteredSpecializations.size() == 0) {
-                            ratings = new ArrayList<>();
+                            specializations = new ArrayList<>();
                             filteredRatings = new ArrayList<>();
                             filteringSpecialization = false;
                         } else {

@@ -49,9 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean filteringRating = false;
     private boolean filteringSpecialization = false;
 
-//    private static final long UPDATE_INTERVAL = 10000;
-//    private static final long FASTEST_INTERVAL = 2000;
-//    private LocationRequest locationRequest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,28 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        startLocationUpdate();
     }
 
-//    @SuppressLint({"RestrictedApi", "MissingPermission"})
-//    private void startLocationUpdate() {
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-//                == PackageManager.PERMISSION_GRANTED) {
-//            locationRequest = new LocationRequest();
-//            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-//            locationRequest.setInterval(UPDATE_INTERVAL);
-//            locationRequest.setFastestInterval(FASTEST_INTERVAL);
-//            fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
-//                @Override
-//                public void onLocationResult(LocationResult locationResult) {
-//                    super.onLocationResult(locationResult);
-//                    mMap.clear();
-//                    LatLng latLng = new LatLng(locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
-//                    mMap.addMarker(new MarkerOptions().position(latLng).title("You are here"));
-//                    new GetClinics().execute();
-//                }
-//            }, null);
-//        } else {
-//            requestLocationPermission();
-//        }
-//    }
+
 
     @Override
     protected void onResume() {
