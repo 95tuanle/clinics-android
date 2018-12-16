@@ -157,7 +157,7 @@ public class ListClinicsActivity extends AppCompatActivity {
                         // User clicked OK button
                         if (filteredSpecializations.size() == 0) {
                             specializations = new ArrayList<>();
-                            filteredRatings = new ArrayList<>();
+                            filteredSpecializations = new ArrayList<>();
                             filteringSpecialization = false;
                         } else {
                             filteringSpecialization = true;

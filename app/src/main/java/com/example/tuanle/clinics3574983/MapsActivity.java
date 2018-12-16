@@ -286,8 +286,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
                         if (filteredSpecializations.size() == 0) {
-                            ratings = new ArrayList<>();
-                            filteredRatings = new ArrayList<>();
+                            specializations = new ArrayList<>();
+                            filteredSpecializations = new ArrayList<>();
                             filteringSpecialization = false;
                         } else {
                             filteringSpecialization = true;
