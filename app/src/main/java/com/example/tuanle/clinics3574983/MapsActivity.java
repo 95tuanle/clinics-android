@@ -2,6 +2,8 @@ package com.example.tuanle.clinics3574983;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -12,13 +14,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.TypedArrayUtils;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,12 +34,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     public static final String MAP_API = "https://clinicandroidasn2v2.herokuapp.com/clinics";
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private List<String> ratings;
+    private List<String> specializations;
+    private List<String> filteredRatings;
+//    private List<String> filteredSpecializations;
+
 //    private static final long UPDATE_INTERVAL = 10000;
 //    private static final long FASTEST_INTERVAL = 2000;
 //    private LocationRequest locationRequest;
@@ -67,6 +75,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+        ratings = new ArrayList<>();
+        specializations = new ArrayList<>();
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -89,6 +99,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return false;
             }
         });
+
 
         requestLocationPermission();
 //        startLocationUpdate();
@@ -144,7 +155,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
     }
 
-    @SuppressLint("MissingPermission")
     public void getCurrentLocationClicked(View view) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -172,6 +182,67 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
     }
 
+    public void onFilterClicked(View view) {
+        AlertDialog.Builder mainBuilder = new AlertDialog.Builder(MapsActivity.this);
+        mainBuilder.setTitle("Pick type of filter");
+        mainBuilder.setNegativeButton("Rating", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MapsActivity.this);
+                builder.setTitle("Pick rating filter");
+                if (filteredRatings == null) {
+                    filteredRatings = new ArrayList<>();
+                }
+
+                final String[] ratingArray = ratings.toArray(new String[ratings.size()]);
+                boolean[] checkedRatings = new boolean[ratingArray.length];
+
+                for (int i = 0; i < ratingArray.length; i++) {
+                    if (filteredRatings.contains(ratingArray[i])) {
+                        checkedRatings[i] = true;
+                    }
+
+                }
+                builder.setMultiChoiceItems(ratingArray, checkedRatings, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        String rating = ratingArray[which];
+                        if (isChecked) {
+                            if (!filteredRatings.contains(rating)) {
+                                filteredRatings.add(rating);
+                            }
+
+                        } else if (filteredRatings.contains(rating)) {
+                            filteredRatings.remove(rating);
+                        }
+                    }
+                });
+                builder.setPositiveButton("Filter", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+        AlertDialog alertDialog = mainBuilder.create();
+        alertDialog.show();
+
+
+
+
+
+    }
+
+
+
     @SuppressLint("StaticFieldLeak")
     private class GetClinics extends AsyncTask<Void, Void, Void> {
         String jsonString;
@@ -195,6 +266,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             , jsonObject.getDouble("longitude"))).icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap))
                             .title(jsonObject.getString("name")).snippet("clinic"));
                     marker.setTag(jsonObject);
+                    String rating = jsonObject.getString("rating");
+                    if (!ratings.contains(rating)) {
+                        ratings.add(rating);
+                    }
+                    String specialization = jsonObject.getString("specialization");
+                    if (!specializations.contains(specialization)) {
+                        specializations.add(specialization);
+                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

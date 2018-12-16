@@ -21,7 +21,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="33dp"
         android:layout_marginBottom="33dp"
-        android:layout_toEndOf="@+id/floatingActionButton2"
+        android:layout_toEndOf="@+id/floatingActionButton3"
         android:clickable="true"
         android:focusable="true"
         android:onClick="getCurrentLocationClicked"
@@ -40,6 +40,20 @@
         android:focusable="true"
         android:onClick="listViewClicked"
         android:src="@android:drawable/ic_menu_agenda"
+        map:backgroundTint="@color/cast_expanded_controller_background_color" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="33dp"
+        android:layout_toEndOf="@+id/floatingActionButton2"
+        android:clickable="true"
+        android:src="@android:drawable/ic_menu_view"
+        android:focusable="true"
+        android:onClick="onFilterClicked"
         map:backgroundTint="@color/cast_expanded_controller_background_color" />
 
 

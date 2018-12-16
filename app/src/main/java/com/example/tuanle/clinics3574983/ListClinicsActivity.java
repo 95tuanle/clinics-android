@@ -68,7 +68,6 @@ public class ListClinicsActivity extends AppCompatActivity {
                         TextView text1 = view.findViewById(android.R.id.text1);
                         TextView text2 = view.findViewById(android.R.id.text2);
                         JSONObject jsonObject = jsonObjectsList.get(position);
-                        System.out.println(jsonObject);
                         try {
                             text1.setText(jsonObject.getString("name") + " clinic at " + jsonObject.getString("address"));
                             text2.setText("Leading by " + jsonObject.getString("lead_physician")
